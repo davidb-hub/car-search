@@ -32,41 +32,46 @@ function App() {
     })
   }
 
-function handleSubmit(e) {
-  e.preventDefault()
-  searchParams.append('marke', searchData.marke)
-  searchParams.append('modell', searchData.modell)
-  searchParams.append('tillverkningsar', searchData.tillverkningsar)
-  searchParams.append('drivmedel', searchData.drivmedel)
-  let searchUrl = url + searchParams.toString();
-  fetchData(searchUrl)
-  console.log(searchUrl)
-}
+  function handleSubmit(e) {
+    e.preventDefault()
+    searchParams.append('marke', searchData.marke)
+    searchParams.append('modell', searchData.modell)
+    searchParams.append('tillverkningsar', searchData.tillverkningsar)
+    searchParams.append('drivmedel', searchData.drivmedel)
+    let searchUrl = url + searchParams.toString();
+    fetchData(searchUrl)
+    console.log(searchUrl)
+  }
 
-return (
+  return (
 
-  <div className="App">
-    <form className="search-form" onSubmit={handleSubmit} id="search-form">
-      <input type="text" placeholder='Märke...'
-        required onChange={handleInput} name="marke" value={searchData.marke} />
+    <div className="App">
+      <div className="container">
+        <form className="search-form" onSubmit={handleSubmit} id="search-form">
+          <input type="text" placeholder='Märke...'
+            required onChange={handleInput} name="marke" value={searchData.marke} />
 
-      <input type="text" placeholder='Modell...'
-        required onChange={handleInput} name="modell" value={searchData.modell} />
+          <input type="text" placeholder='Modell...'
+            required onChange={handleInput} name="modell" value={searchData.modell} />
 
-      <input type="text" placeholder='Tillverkningsår...'
-        onChange={handleInput} name="tillverkningsar" value={searchData.tillverkningsar} />
+          <input type="text" placeholder='Tillverkningsår...'
+            onChange={handleInput} name="tillverkningsar" value={searchData.tillverkningsar} />
 
-      <input type="text" placeholder='Drivmedel...'
-        onChange={handleInput} name="drivmedel" value={searchData.drivmedel} />
+          <input type="text" placeholder='Drivmedel...'
+            onChange={handleInput} name="drivmedel" value={searchData.drivmedel} />
 
-      <input type="submit" value="Sök" />
-    </form>
-    <br />
-    <span>Matches: {carData.resultCount}</span>
-    <br />
-    <span>Average price: {carData.averagePrice}</span>
-  </div>
-);
+          <button className="form-button">Sök</button>
+        </form>
+        <br/>
+        <hr></hr>
+        <br/>
+        <span>Matches: <b>{carData.resultCount}</b></span>
+        <br/>
+        <span>Average price: <b>{carData.averagePrice}</b></span>
+      </div>
+    </div>
+  );
 }
 
 export default App;
+

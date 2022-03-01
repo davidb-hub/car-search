@@ -3,7 +3,6 @@ package com.davidb.kgkcarsearch.service.impl;
 import com.davidb.kgkcarsearch.service.CarInfoService;
 import com.davidb.kgkcarsearch.bean.CarInfo;
 import com.davidb.kgkcarsearch.bean.CarSearchResultPage;
-import com.davidb.kgkcarsearch.service.CarInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -33,7 +32,7 @@ public class CarInfoServiceImpl implements CarInfoService {
     private boolean isValid(String queryParam) {
         return queryParam != null && !queryParam.isEmpty();
     }
-
+    
     @Override
     public List<CarInfo> searchCar(String marke, String modell, String tillverkningsar, String bransletyp) {
 
