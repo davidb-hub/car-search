@@ -2,7 +2,7 @@ import React from 'react'
 
 function App() {
 
-  let url = "http://localhost:8080/car-service/sale-price/avg?";
+  const url = "http://localhost:8080/car-service/sale-price/avg?";
   let searchParams = new URLSearchParams(url.search);
 
   const [carData, setCarData] = React.useState({});
@@ -13,8 +13,8 @@ function App() {
     drivmedel: ""
   })
 
-  function fetchData() {
-    fetch(url)
+  function fetchData(searchUrl) {
+    fetch(searchUrl)
       .then((res) => {
         if (res.ok) {
           return res.json()
@@ -38,9 +38,9 @@ function handleSubmit(e) {
   searchParams.append('modell', searchData.modell)
   searchParams.append('tillverkningsar', searchData.tillverkningsar)
   searchParams.append('drivmedel', searchData.drivmedel)
-  url = url + searchParams.toString();
-  fetchData()
-  console.log(url)
+  let searchUrl = url + searchParams.toString();
+  fetchData(searchUrl)
+  console.log(searchUrl)
 }
 
 return (
