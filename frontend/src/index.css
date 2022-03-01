@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.search-form {
+  border-radius: 1em;
+  border-width: 0;
+  margin: 5px;
+}
+
+input, button {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+span {
+  margin: 10px;
+}
